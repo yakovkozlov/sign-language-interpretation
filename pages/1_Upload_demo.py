@@ -64,19 +64,19 @@ with st.beta_expander(":blue[Load the image]", expanded=False):
 
         st.write("the sign means", answer)
 
-        with st.beta_expander(":green[Visualize the preprocessing] :nerd_face:", expanded=False):
-            c1, c2, c3 = st.beta_columns(3)
-            # Space out the maps so the first one is 2x the size of the other three
-            c1, c2, c3, c4 = st.beta_columns((4, 3, 2, 1))
+#         with st.beta_expander(":green[Visualize the preprocessing] :nerd_face:", expanded=False):
+#             c1, c2, c3 = st.beta_columns(3)
+#             # Space out the maps so the first one is 2x the size of the other three
+#             c1, c2, c3, c4 = st.beta_columns((4, 3, 2, 1))
 
-        c1.header("Orig")
-        c1.image(uploaded_image, use_column_width=True)
+#         c1.header("Orig")
+#         c1.image(uploaded_image, use_column_width=True)
 
-        c2.header("Resize")
-        c2.image(res, use_column_width=True)
+#         c2.header("Resize")
+#         c2.image(res, use_column_width=True)
         
-        c3.header("Reshape")
-        c3.image(reshaped_image, use_column_width=True)
+#         c3.header("Reshape")
+#         c3.image(reshaped_image, use_column_width=True)
 
-        c4.header("Not using Grayscale, but we could;)")
-        c4.image(grayscale_image, use_column_width=True)
+#         c4.header("Not using Grayscale, but we could;)")
+#         c4.image(grayscale_image, use_column_width=True)
