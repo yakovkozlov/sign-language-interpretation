@@ -11,12 +11,10 @@ st.sidebar.success("Select another demo")
 
 st.title("Do you have a sign image to covert?!")
 
-my_expander = st.beta_expander()
-with my_expander:
-    # creating interface to upload data
-    st.set_option('deprecation.showfileUploaderEncoding', False)
+# creating interface to upload data
+st.set_option('deprecation.showfileUploaderEncoding', False)
 
-    uploaded_file = st.file_uploader("Choose an image file :sunglasses:", type=['png', 'jpg'])
+uploaded_file = st.file_uploader("Choose an image file :sunglasses:", type=['png', 'jpg'])
 #
 if uploaded_file is not None:
     data = uploaded_file
