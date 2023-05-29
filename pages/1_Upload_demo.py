@@ -41,9 +41,9 @@ if uploaded_file is not None:
 
     # Convert to grayscale
     grayscale_image = cv2.cvtColor(res, cv2.COLOR_RGB2GRAY)
-
-    # Reshape to (56, 56, 1)
-    reshaped_image = np.reshape(res, (100, 100, 1))
+    
+    # Reshape to (100, 100, 3)
+    reshaped_image = np.reshape(res, (100, 100, 3))
 
     #using the model to predict
 #     model=ModelCNN02()
