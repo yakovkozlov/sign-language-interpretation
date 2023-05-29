@@ -19,11 +19,12 @@ st.title("Do you have a sign image to covert?!")
 # creating interface to upload data
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-# #upload a model to run
-# uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
+#upload a model to run
+with st.beta_expander(":red[Load the pre-trained model] :nerd_face:", expanded=False):
+    uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
 
-# if uploaded_model is not None:
-#         st.write("We'll use this model:", uploaded_model.name)
+    if uploaded_model is not None:
+            st.success('You model has been successfully uploaded! You are doing great!')
 
 #upload an image to test
 uploaded_file = st.file_uploader("Choose an image file :sunglasses:", type=['png', 'jpg'])
@@ -31,26 +32,21 @@ uploaded_file = st.file_uploader("Choose an image file :sunglasses:", type=['png
 if uploaded_file is not None:
     data = uploaded_file
     st.write("filename:", data.name)
-    st.success('An image has been successfully uploaded! You are doing great!')
-
+    
     #convert image to test file for prediction - preproc
     uploaded_image = Image.open(data)
-
+    
+    # Resize to 100 x 100
     res = cv2.resize(np.array(uploaded_image), dsize=(100, 100), interpolation=cv2.INTER_CUBIC)
 
     # Convert to grayscale
-    grayscale_image = cv2.cvtColor(res, cv2.COLOR_RGB2GRAY)
+#     grayscale_image = cv2.cvtColor(res, cv2.COLOR_RGB2GRAY)
 
     # Reshape to (56, 56, 1)
     reshaped_image = np.reshape(grayscale_image, (100, 100, 1))
 
-    # Save the resized image as a temporary file
-    # with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-    #     temp_path = temp_file.name
-    #     cv2.imwrite(temp_path, uploaded_image)
-
     #using the model to predict
-    model=ModelCNN02()
+#     model=ModelCNN02()
     answer = model.predict(reshaped_image)
 
     st.write("the sign means", answer)
