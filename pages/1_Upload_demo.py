@@ -25,7 +25,11 @@ with st.beta_expander(":red[Load the pre-trained model] :nerd_face:", expanded=F
     uploaded_model = st.file_uploader("1. Choose an tensorflow model: ", type=['h5', 'keras'])
 
     if uploaded_model is not None:
-        model = load_model(uploaded_model)
+        model_path = "./model.h5"  # Define a path to save the uploaded file
+        with open(model_path, "wb") as f:
+            f.write(uploaded_model.getvalue())
+            model = load_model(model_path)
+
         st.success('You model has been successfully uploaded! You are doing great!')
 
 #upload an image to test
