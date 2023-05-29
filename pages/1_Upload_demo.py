@@ -42,3 +42,11 @@ if uploaded_file is not None:
     answer = model.predict(reshaped_image)
 
     st.write("the sign means", answer)
+    
+    col1, col2 = st.beta_columns(2)
+
+    col1.header("Original")
+    col1.image(uploaded_image, use_column_width=True)
+
+    col2.header("Preprocessed")
+    col2.image(reshaped_image, use_column_width=True)
