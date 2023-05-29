@@ -54,10 +54,13 @@ with st.beta_expander(":blue[Load the image]", expanded=False):
 
         # Reshape to (100, 100, 3)
         reshaped_image = np.reshape(res, (100, 100, 3))
+        expanded_image = np.expand_dims(reshaped_image, axis=0)
 
         #using the model to predict
     #     model=ModelCNN02()
-        answer = model.predict(reshaped_image)
+        letters = {'0':'A', '1':'B', '2':'C', '3':'D', '4':'E', '5':'F', '6':'G', '7':'H', '8':'I', '9':'K', '10':'L', '11':'M', '12':'N',
+           '13':'O', '14':'P', '15':'Q', '16':'R', '17':'S', '18':'T', '19':'U', '20':'V', '21':'W', '22':'X', '23':'Y'}
+        answer = letters[str(int(np.argmax(model.predict(expanded_image), axis=1)))]
 
         st.write("the sign means", answer)
 
