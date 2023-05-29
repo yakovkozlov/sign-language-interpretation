@@ -43,7 +43,7 @@ if uploaded_file is not None:
 
     st.write("the sign means", answer)
     
-    with st.beta_expander("Visualize the preprocessing", expanded=True):
+    with st.beta_expander(":blue[Visualize the preprocessing] :glasses:", expanded=False):
         c1, c2, c3 = st.beta_columns(3)
         # Space out the maps so the first one is 2x the size of the other three
         c1, c2, c3 = st.beta_columns((1, 2, 3))
