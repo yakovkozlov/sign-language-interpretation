@@ -43,10 +43,15 @@ if uploaded_file is not None:
 
     st.write("the sign means", answer)
     
-    col1, col2 = st.beta_columns(2)
+    c1, c2, c3 = st.beta_columns(3)
+    # Space out the maps so the first one is 2x the size of the other three
+    c1, c2, c3 = st.beta_columns((1, 1, 2))
 
-    col1.header("Original")
-    col1.image(uploaded_image, use_column_width=True)
+    c1.header("Original")
+    c1.image(uploaded_image, use_column_width=True)
 
-    col2.header("Preprocessed")
-    col2.image(reshaped_image, use_column_width=True)
+    c2.header("Resize")
+    c2.image(res, use_column_width=True)
+    
+    c3.header("Grayscale")
+    c3.image(grayscale_image, use_column_width=True)
