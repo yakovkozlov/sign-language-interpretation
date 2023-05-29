@@ -25,7 +25,7 @@ with st.beta_expander(":red[Load the pre-trained model] :nerd_face:", expanded=F
     uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
 
     if uploaded_model is not None:
-        model = load_model(uploaded_model)
+#         model = load_model(uploaded_model)
         st.success('You model has been successfully uploaded! You are doing great!')
 
 #upload an image to test
@@ -52,7 +52,7 @@ if uploaded_file is not None:
 
     #using the model to predict
 #     model=ModelCNN02()
-    answer = model.predict(reshaped_image)
+    answer = uploaded_model.predict(reshaped_image)
 
     st.write("the sign means", answer)
     
