@@ -19,11 +19,12 @@ st.title("Do you have a sign image to covert?!")
 # creating interface to upload data
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-#upload a model to run
-uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
+with st.beta_expander(":green[Visualize the preprocessing] :nerd_face:", expanded=False):
+    #upload a model to run
+    uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
 
-if uploaded_file is not None:
-    st.write("We'll use this model:", uploaded_model.name)
+    if uploaded_file is not None:
+        st.write("We'll use this model:", uploaded_model.name)
 
 #upload an image to test
 uploaded_file = st.file_uploader("Choose an image file :sunglasses:", type=['png', 'jpg'])
