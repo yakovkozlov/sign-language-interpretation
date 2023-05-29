@@ -42,7 +42,7 @@ if uploaded_file is not None:
     res = cv2.resize(np.array(uploaded_image), dsize=(100, 100), interpolation=cv2.INTER_CUBIC)
     
     st.write("shape coming in:", res.shape)
-    st.write("Expected model shape:", model.input_shape)
+    st.write("Expected model shape:", uploaded_model.input_shape)
 
     # Convert to grayscale
     grayscale_image = cv2.cvtColor(res, cv2.COLOR_RGB2GRAY)
