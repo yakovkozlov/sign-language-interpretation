@@ -19,11 +19,11 @@ st.title("Do you have a sign image to covert?!")
 # creating interface to upload data
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-#upload a model to run
-uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
+# #upload a model to run
+# uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
 
-if uploaded_model is not None:
-        st.write("We'll use this model:", uploaded_model.name)
+# if uploaded_model is not None:
+#         st.write("We'll use this model:", uploaded_model.name)
 
 #upload an image to test
 uploaded_file = st.file_uploader("Choose an image file :sunglasses:", type=['png', 'jpg'])
@@ -50,7 +50,7 @@ if uploaded_file is not None:
     #     cv2.imwrite(temp_path, uploaded_image)
 
     #using the model to predict
-#     model=ModelCNN02()
+    model=ModelCNN02()
     answer = model.predict(reshaped_image)
 
     st.write("the sign means", answer)
