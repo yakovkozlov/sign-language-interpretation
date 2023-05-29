@@ -2,6 +2,7 @@ import streamlit as st
 import cv2
 import numpy as np
 from PIL import Image
+from tensorflow.keras.models import load_model
 
 import sys
 sys.path.append('../')
@@ -24,7 +25,8 @@ with st.beta_expander(":red[Load the pre-trained model] :nerd_face:", expanded=F
     uploaded_model = st.file_uploader("Choose an tensorflow model: ", type=['h5', 'keras'])
 
     if uploaded_model is not None:
-            st.success('You model has been successfully uploaded! You are doing great!')
+        model = load_model(uploaded_model)
+        st.success('You model has been successfully uploaded! You are doing great!')
 
 #upload an image to test
 uploaded_file = st.file_uploader("Choose an image file :sunglasses:", type=['png', 'jpg'])
